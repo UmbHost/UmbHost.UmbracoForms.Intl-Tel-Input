@@ -293,6 +293,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\css\intlTelInput.min.css" />
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\Images\flags%402x.png" />
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\Images\flags.png" />
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\Images\intl-tel-input.png" />
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\js\activeis.umbracoforms.intl-tel-input.js" />
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\Views\FieldTypes\intltelinput.html" />
     <Content Include="App_Plugins\UmbracoForms\Assets\BaremetricsCalendar\public\css\application.css" />
     <Content Include="App_Plugins\UmbracoForms\Assets\BaremetricsCalendar\public\js\Calendar.js" />
     <Content Include="App_Plugins\UmbracoForms\Assets\datepicker.init.js" />
@@ -488,6 +494,8 @@
     <Content Include="config\uSync8.config" />
     <Content Include="App_Plugins\uSync8\package.manifest" />
     <Content Include="App_Plugins\uSync8\addons.json" />
+    <Content Include="package.json" />
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\css\activeis.umbracoforms.intl-tel-input.css" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -536,12 +544,20 @@
     <Content Include="Views\Partials\Forms\Emails\Example-Template.cshtml" />
     <Content Include="Views\MacroPartials\RenderUmbracoFormScripts.cshtml" />
     <Content Include="Views\MacroPartials\InsertUmbracoFormWithTheme.cshtml" />
+    <Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Intl-Tel-Input.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ActiveIS.UmbracoForms.Intl-Tel-Input\ActiveIS.UmbracoForms.Intl-Tel-Input.csproj">
+      <Project>{6f0a02a2-5bd8-4c8e-9185-e731aefb2199}</Project>
+      <Name>ActiveIS.UmbracoForms.Intl-Tel-Input</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
