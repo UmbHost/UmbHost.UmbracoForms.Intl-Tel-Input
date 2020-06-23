@@ -179,8 +179,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettingsManager.cs" />
     <Compile Include="Consts.cs" />
     <Compile Include="Fields\IntlTelInputField.cs" />
+    <Compile Include="IpStackModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

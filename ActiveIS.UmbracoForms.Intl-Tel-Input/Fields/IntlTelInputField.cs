@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Web;
+using Newtonsoft.Json;
+using NPoco.fastJSON;
 using Umbraco.Forms.Core;
 using Umbraco.Forms.Core.Attributes;
 using Umbraco.Forms.Core.Enums;
@@ -43,9 +47,11 @@ namespace ActiveIS.UmbracoForms.Intl_Tel_Input.Fields
             //return $"window.intlTelInput(document.querySelector(\"#{field.Id}\"));";
 
             var ipBasedCountry = false;
+            string ipInfoKey = null;
             if (field.Settings.ContainsKey("IPBasedCountry") && !string.IsNullOrEmpty(field.Settings["IPBasedCountry"]))
             {
                 ipBasedCountry = Convert.ToBoolean(field.Settings["IPBasedCountry"]);
+                ipInfoKey = AppSettingsManager.GetIPinfoKey();
             }
 
             var initialIPBasedCountry = "auto";
@@ -54,7 +60,17 @@ namespace ActiveIS.UmbracoForms.Intl_Tel_Input.Fields
                 initialIPBasedCountry = field.Settings["IPBasedCountry"];
             }
 
-            return $"activeisUmbracoFormsIntlTelInput(document.querySelector(\"#{field.Id}\"),{ipBasedCountry.ToString().ToLower()},'{initialIPBasedCountry}');";
+            var autoPlaceholder = false;
+            if (field.Settings.ContainsKey("AutoPlaceholder") && !string.IsNullOrEmpty(field.Settings["AutoPlaceholder"]))
+            {
+                autoPlaceholder = Convert.ToBoolean(field.Settings["AutoPlaceholder"]);
+            }
+
+            return $"activeisUmbracoFormsIntlTelInput(document.querySelector(\"#{field.Id}\")," +
+                   $"{ipBasedCountry.ToString().ToLower()}," +
+                   $"'{initialIPBasedCountry}'," +
+                   $"{autoPlaceholder.ToString().ToLower()}," +
+                   $"'{ipInfoKey}');";
         }
 
         public override IEnumerable<string> RequiredCssFiles(Field field)
@@ -75,8 +91,8 @@ namespace ActiveIS.UmbracoForms.Intl_Tel_Input.Fields
             javascriptFiles.Add($"{Consts.PluginScriptRoot}/intlTelInput.min.js");
             javascriptFiles.Add($"{Consts.PluginScriptRoot}/activeis.umbracoforms.intl-tel-input.js");
 
-            if (field.Settings.ContainsKey("IPBasedCountry") && field.Settings["IPBasedCountry"] == "true"
-                || field.Settings.ContainsKey("AutoPlaceholder") && field.Settings["AutoPlaceholder"] == "true")
+            if (field.Settings.ContainsKey("IPBasedCountry") && field.Settings["IPBasedCountry"] == "True"
+                || field.Settings.ContainsKey("AutoPlaceholder") && field.Settings["AutoPlaceholder"] == "True")
             {
                 javascriptFiles.Add($"{Consts.PluginScriptRoot}/utils.js");
             }

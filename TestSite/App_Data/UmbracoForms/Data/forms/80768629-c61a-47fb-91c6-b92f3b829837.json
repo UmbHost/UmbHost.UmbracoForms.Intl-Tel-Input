@@ -124,8 +124,10 @@
                     "rules": []
                   },
                   "settings": {
-                    "Placeholder": "01234567890",
-                    "IPBasedCountry": ""
+                    "AutoPlaceholder": "True",
+                    "Placeholder": "",
+                    "IPBasedCountry": "True",
+                    "InitialIPCountry": ""
                   },
                   "preValues": []
                 }
