@@ -496,6 +496,7 @@
     <Content Include="App_Plugins\uSync8\addons.json" />
     <Content Include="package.json" />
     <Content Include="App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\css\activeis.umbracoforms.intl-tel-input.css" />
+    <Content Include="App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\js\validate.phonenumber.js" />
     <None Include="packages.config" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />

@@ -1,6 +1,6 @@
 {
-  "name": "Contact form",
-  "created": "2020-06-23T13:02:54.9950692+01:00",
+  "name": "Contact form (1)",
+  "created": "2020-07-01T11:44:01.7319525+01:00",
   "pages": [
     {
       "fieldSets": [
@@ -26,16 +26,10 @@
                   "dataSourceFieldKey": null,
                   "containsSensitiveData": false,
                   "mandatory": false,
-                  "regex": "^[0-9]*$",
+                  "regex": null,
                   "requiredErrorMessage": null,
                   "invalidErrorMessage": null,
-                  "condition": {
-                    "id": "00000000-0000-0000-0000-000000000000",
-                    "enabled": false,
-                    "actionType": "Show",
-                    "logicType": "All",
-                    "rules": []
-                  },
+                  "condition": null,
                   "settings": {
                     "DefaultValue": "",
                     "Placeholder": ""
@@ -106,38 +100,6 @@
                     "AcceptCopy": "Yes, I give permission to store and process my data"
                   },
                   "preValues": null
-                },
-                {
-                  "caption": "Intel Tel Input 1",
-                  "tooltip": null,
-                  "placeholder": null,
-                  "cssClass": null,
-                  "alias": "intelTelInput1",
-                  "id": "e0c40414-0a53-4d36-c73a-ffa90a9f27dc",
-                  "fieldTypeId": "a7dc31b0-651f-4f29-ada3-0244bde2a7bd",
-                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
-                  "dataSourceFieldKey": null,
-                  "containsSensitiveData": false,
-                  "mandatory": true,
-                  "regex": null,
-                  "requiredErrorMessage": null,
-                  "invalidErrorMessage": null,
-                  "condition": {
-                    "id": "00000000-0000-0000-0000-000000000000",
-                    "enabled": false,
-                    "actionType": "Show",
-                    "logicType": "All",
-                    "rules": []
-                  },
-                  "settings": {
-                    "ValidationMessage": "",
-                    "AutoPlaceholder": "False",
-                    "AutoPlaceholderType": "FIXED_LINE",
-                    "Placeholder": "1234",
-                    "IPBasedCountry": "True",
-                    "InitialCountry": "pt"
-                  },
-                  "preValues": []
                 }
               ]
             }
@@ -151,7 +113,7 @@
       "form": "00000000-0000-0000-0000-000000000000"
     }
   ],
-  "id": "80768629-c61a-47fb-91c6-b92f3b829837",
+  "id": "d04e6e5c-673d-4c78-bbd7-4b8bd090918f",
   "fieldIndicationType": "MarkMandatoryFields",
   "indicator": "*",
   "showValidationSummary": false,

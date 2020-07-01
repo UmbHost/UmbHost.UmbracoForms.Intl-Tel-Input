@@ -182,16 +182,25 @@
     <Compile Include="AppSettingsManager.cs" />
     <Compile Include="Consts.cs" />
     <Compile Include="Fields\IntlTelInputField.cs" />
-    <Compile Include="IpStackModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\css\" />
-    <Folder Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\js\" />
+    <Folder Include="UI\Views\Partials\Forms\Themes\Fieldtypes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <Content Include="UI\Views\Partials\Forms\Themes\default\Render.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\css\activeis.umbracoforms.intl-tel-input.css" />
+    <Content Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\css\intlTelInput.min.css" />
+    <Content Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\Images\flags%402x.png" />
+    <Content Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\Images\flags.png" />
+    <Content Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\Images\intl-tel-input.png" />
+    <Content Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\js\activeis.umbracoforms.intl-tel-input.js" />
+    <Content Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\js\validate.phonenumber.js" />
+    <Content Include="UI\App_Plugins\ActiveIS.UmbracoForms.Intl-Tel-Input\Views\FieldTypes\intltelinput.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets" Condition="Exists('..\packages\Umbraco.SqlServerCE.4.0.0.1\build\Umbraco.SqlServerCE.targets')" />
