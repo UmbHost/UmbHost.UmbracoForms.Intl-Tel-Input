@@ -2,13 +2,13 @@
 
     var input = document.querySelector("#" + fieldId);
 
-        var intlTelInputOptions = {};
+    var intlTelInputOptions = {};
 
     intlTelInputOptions.initialCountry = initialCountry;
 
     if (enableIPBasedCountry) {
-        intlTelInputOptions.geoIpLookup = function(success, failure) {
-            $.get("https://ipinfo.io/json?token=" + ipInfoKey, function() {}, "json").always(function(resp) {
+        intlTelInputOptions.geoIpLookup = function (success, failure) {
+            $.get("https://ipinfo.io/json?token=" + ipInfoKey, function () { }, "json").always(function (resp) {
                 var countryCode = (resp && resp.country) ? resp.country : "gb";
                 success(countryCode);
             });
@@ -44,5 +44,6 @@
     };
 
     input.addEventListener('change', handleChange);
+    input.addEventListener('countrychange', handleChange);
     input.addEventListener('keyup', handleChange);
 }

@@ -44,5 +44,6 @@
     };
 
     input.addEventListener('change', handleChange);
+    input.addEventListener('countrychange', handleChange);
     input.addEventListener('keyup', handleChange);
 }
