@@ -135,7 +135,9 @@
                     "AutoPlaceholderType": "FIXED_LINE",
                     "Placeholder": "1234",
                     "IPBasedCountry": "True",
-                    "InitialCountry": "pt"
+                    "InitialCountry": "pt",
+                    "PreferredCountries": "",
+                    "OnlyCountries": ""
                   },
                   "preValues": []
                 }

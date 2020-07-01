@@ -1,4 +1,4 @@
-﻿function activeisUmbracoFormsIntlTelInput(fieldId, enableIPBasedCountry, initialCountry, autoPlaceholder, ipInfoKey, placeholderType) {
+﻿function activeisUmbracoFormsIntlTelInput(fieldId, enableIPBasedCountry, initialCountry, autoPlaceholder, ipInfoKey, placeholderType, preferredCountries, onlyCountries) {
 
     var input = document.querySelector("#" + fieldId);
 
@@ -21,6 +21,14 @@
 
     if (placeholderType) {
         intlTelInputOptions.placeholderNumberType = placeholderType;
+    }
+
+    if (preferredCountries) {
+        intlTelInputOptions.preferredCountries = preferredCountries;
+    }
+
+    if (onlyCountries) {
+        intlTelInputOptions.onlyCountries = onlyCountries;
     }
 
     var iti = intlTelInput(input,

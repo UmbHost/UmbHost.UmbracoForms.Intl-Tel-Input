@@ -42,8 +42,13 @@ namespace ActiveIS.UmbracoForms.Intl_Tel_Input.Fields
         public string IPBasedCountry { get; set; }
 
         [Setting("Initial country", Description = "The default country selected in ISO2 format (e.g. GB)", View = "textfield")]
-        [Required]
         public string InitialCountry { get; set; }
+
+        [Setting("Preferred countries", Description = "Specify the countries to appear at the top of the list in ISO2 format (Comma separated)", View = "textfield")]
+        public string PreferredCountries { get; set; }
+
+        [Setting("Only countries", Description = "In the dropdown, display only the countries you specify in ISO2 format (Comma separated)", View = "textfield")]
+        public string OnlyCountries { get; set; }
 
         public override string GetDesignView()
         {
@@ -81,12 +86,41 @@ namespace ActiveIS.UmbracoForms.Intl_Tel_Input.Fields
                 placeholderType = field.Settings["AutoPlaceholderType"];
             }
 
+            string preferredCountries ="null";
+            if (field.Settings.ContainsKey("PreferredCountries"))
+            {
+                var pfSettingValue = field.Settings["PreferredCountries"];
+                if (!string.IsNullOrWhiteSpace(pfSettingValue) && !string.IsNullOrEmpty(pfSettingValue))
+                {
+                    var pfc = field.Settings["PreferredCountries"].Split(',');
+                    if (pfc.Any())
+                    {
+                        preferredCountries = JsonConvert.SerializeObject(pfc);
+                    }
+                }
+            }
+
+            string onlyCountries = "null";
+            if (field.Settings.ContainsKey("OnlyCountries"))
+            {
+                var ocSettingValue = field.Settings["OnlyCountries"];
+                if (!string.IsNullOrWhiteSpace(ocSettingValue) && !string.IsNullOrEmpty(ocSettingValue))
+                {
+                    var oc = field.Settings["OnlyCountries"].Split(',');
+                    if (oc.Any())
+                    {
+                        onlyCountries = JsonConvert.SerializeObject(oc);
+                    }
+                }
+            }
             return $"activeisUmbracoFormsIntlTelInput('{field.Id}'," +
                    $"{ipBasedCountry.ToString().ToLower()}," +
                    $"'{initialCountry}'," +
                    $"{autoPlaceholder.ToString().ToLower()}," +
                    $"'{ipInfoKey}'," +
-                   $"'{placeholderType}');";
+                   $"'{placeholderType}'," +
+                   $"{preferredCountries}," +
+                   $"{onlyCountries});";
         }
 
         public override IEnumerable<string> RequiredCssFiles(Field field)
