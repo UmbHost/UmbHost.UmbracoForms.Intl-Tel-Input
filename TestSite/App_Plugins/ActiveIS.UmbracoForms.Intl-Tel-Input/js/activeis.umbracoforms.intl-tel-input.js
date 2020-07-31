@@ -1,6 +1,6 @@
 ﻿function activeisUmbracoFormsIntlTelInput(fieldId, enableIPBasedCountry, initialCountry, autoPlaceholder, ipInfoKey, placeholderType, preferredCountries, onlyCountries) {
 
-    var input = document.querySelector("#" + fieldId);
+    var input = document.getElementById(fieldId);
 
         var intlTelInputOptions = {};
 
