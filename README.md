@@ -22,7 +22,7 @@ You will need to add the following setting to your `appsettings.json`
         "IPinfoKey": "YOUR API KEY"
       }
 
-You must add the following if statement to your Umbraco Forms theme `Render.cshtml` file:
+You must add the following if statement to the end of your Umbraco Forms theme `Render.cshtml` file:
 
 ```
     @if (Model.CurrentPage.JavascriptCommands.Any())
@@ -35,6 +35,17 @@ You must add the following if statement to your Umbraco Forms theme `Render.csht
                 }
             });
         </script>
+    }
+```
+
+It should be placed directly after the following lines:
+
+```
+    @* Form Scripts *@
+    @if (Model.RenderScriptFiles)
+    {
+        @* Render the scripts.cshtml file to included standard conditionals and validation logic *@
+        await Html.RenderPartialAsync(formScriptView);
     }
 ```
 
