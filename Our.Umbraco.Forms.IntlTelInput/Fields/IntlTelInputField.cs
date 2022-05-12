@@ -87,7 +87,7 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
                 placeholderType = field.Settings["AutoPlaceholderType"];
             }
 
-            string preferredCountries ="null";
+            string preferredCountries = "null";
             if (field.Settings.ContainsKey("PreferredCountries"))
             {
                 var pfSettingValue = field.Settings["PreferredCountries"];
@@ -114,9 +114,9 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
                     }
                 }
             }
-            return $"ourUmbracoFormsIntlTelInput('{field.Id}'," +
+            return $"ourUmbracoFormsIntlTelInput('t{field.Id}'," +
                    $"{ipBasedCountry.ToString().ToLower()}," +
-                   $"'{initialCountry}'," +
+                   $"'{initialCountry.ToUpper()}'," +
                    $"{autoPlaceholder.ToString().ToLower()}," +
                    $"'{ipInfoKey}'," +
                    $"'{placeholderType}'," +
@@ -157,12 +157,11 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
             IPlaceholderParsingService placeholderParsingService, List<string> errors)
         {
             var invalidFields = new List<string>();
-            var formFields = context.Request.Form;
-            if (formFields.ContainsKey("phone_intl_" + field.Id))
+            if (postedValues.Any())
             {
                 try
                 {
-                    var submittedNumber = formFields["phone_intl_" + field.Id];
+                    var submittedNumber = postedValues.First().ToString();
                     var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
                     var phoneNumber = phoneNumberUtil.Parse(submittedNumber, null);
                     var isValid = phoneNumberUtil.IsValidNumber(phoneNumber);
@@ -181,22 +180,6 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
             }
 
             return base.ValidateField(form, field, postedValues, context, placeholderParsingService, errors);
-        }
-
-        public override IEnumerable<object> ProcessSubmittedValue(Field field, IEnumerable<object> postedValues, HttpContext context)
-        {
-            var formFields = context.Request.Form;
-            var submittedNumber = formFields["phone_intl_" + field.Id];
-            if (!string.IsNullOrEmpty(submittedNumber) && !string.IsNullOrWhiteSpace(submittedNumber))
-            {
-                var pv = postedValues.ToList();
-                pv.Clear();
-                pv.Add(submittedNumber);
-
-                return base.ProcessSubmittedValue(field, pv, context);
-            }
-
-            return base.ProcessSubmittedValue(field, postedValues, context);
         }
     }
 }

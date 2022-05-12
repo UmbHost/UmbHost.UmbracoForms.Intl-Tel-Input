@@ -1,6 +1,6 @@
 ﻿function ourUmbracoFormsIntlTelInput(fieldId, enableIPBasedCountry, initialCountry, autoPlaceholder, ipInfoKey, placeholderType, preferredCountries, onlyCountries) {
 
-    var input = document.querySelector("#t" + fieldId);
+    var input = document.querySelector("#phone_intl_" + fieldId);
 
     var intlTelInputOptions = {};
 
@@ -34,7 +34,7 @@
     var iti = intlTelInput(input,
         intlTelInputOptions);
 
-    var output = document.querySelector("#phone_intl_" + fieldId);
+    var output = document.querySelector("#" + fieldId);
 
     var handleChange = function () {
         var number = (iti.isValidNumber()) ? iti.getNumber() : "";
