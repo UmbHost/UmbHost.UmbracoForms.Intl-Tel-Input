@@ -1,4 +1,4 @@
-﻿namespace Our.Umbraco.Forms.Intl_Tel_Input.Configuration
+﻿namespace Our.Umbraco.Forms.IntlTelInput.Configuration
 {
 	public class IntlTelInputSettings
     {

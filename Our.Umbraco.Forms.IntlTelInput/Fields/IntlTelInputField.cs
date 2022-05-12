@@ -4,20 +4,19 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Our.Umbraco.Forms.Intl_Tel_Input.Configuration;
-using Our.Umbraco.Forums.Intl_Tel_Input;
+using Our.Umbraco.Forms.IntlTelInput.Configuration;
 using Umbraco.Forms.Core;
 using Umbraco.Forms.Core.Attributes;
 using Umbraco.Forms.Core.Enums;
 using Umbraco.Forms.Core.Models;
 using Umbraco.Forms.Core.Services;
 
-namespace Our.Umbraco.Forms.Intl_Tel_Input.Fields
+namespace Our.Umbraco.Forms.IntlTelInput.Fields
 {
-    public class IntlTelInput : FieldType
+    public class IntlTelInputField : FieldType
     {
         private readonly IntlTelInputSettings _config;
-        public IntlTelInput(IOptionsMonitor<IntlTelInputSettings> config)
+        public IntlTelInputField(IOptionsMonitor<IntlTelInputSettings> config)
         {
             _config = config.CurrentValue;
             Id = new Guid("a7dc31b0-651f-4f29-ada3-0244bde2a7bd");
