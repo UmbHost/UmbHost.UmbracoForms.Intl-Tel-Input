@@ -87,7 +87,7 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
                 placeholderType = field.Settings["AutoPlaceholderType"];
             }
 
-            string preferredCountries ="null";
+            string preferredCountries = "null";
             if (field.Settings.ContainsKey("PreferredCountries"))
             {
                 var pfSettingValue = field.Settings["PreferredCountries"];
@@ -157,25 +157,16 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
             IPlaceholderParsingService placeholderParsingService, List<string> errors)
         {
             var invalidFields = new List<string>();
-            var formFields = context.Request.Form;
-            if (formFields.ContainsKey("phone_intl_t" + field.Id))
+            if (postedValues.Any())
             {
                 try
                 {
-                    var containsNumber = formFields.TryGetValue("phone_intl_t" + field.Id, out var submittedNumber);
-                    if (containsNumber)
-                    {
-                        var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
-                        var phoneNumber = phoneNumberUtil.Parse(submittedNumber, null);
-                        var isValid = phoneNumberUtil.IsValidNumber(phoneNumber);
+                    var submittedNumber = postedValues.First().ToString();
+                    var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
+                    var phoneNumber = phoneNumberUtil.Parse(submittedNumber, null);
+                    var isValid = phoneNumberUtil.IsValidNumber(phoneNumber);
 
-                        if (!isValid)
-                        {
-                            invalidFields.Add("The number entered is not valid");
-                            return invalidFields;
-                        }
-                    }
-                    else
+                    if (!isValid)
                     {
                         invalidFields.Add("The number entered is not valid");
                         return invalidFields;
@@ -190,21 +181,5 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
 
             return base.ValidateField(form, field, postedValues, context, placeholderParsingService, errors);
         }
-
-        //public override IEnumerable<object> ProcessSubmittedValue(Field field, IEnumerable<object> postedValues, HttpContext context)
-        //{
-        //    var formFields = context.Request.Form;
-        //    var submittedNumber = formFields["phone_intl_t" + field.Id];
-        //    if (!string.IsNullOrEmpty(submittedNumber) && !string.IsNullOrWhiteSpace(submittedNumber))
-        //    {
-        //        var pv = postedValues.ToList();
-        //        pv.Clear();
-        //        pv.Add(submittedNumber);
-
-        //        return base.ProcessSubmittedValue(field, pv, context);
-        //    }
-
-        //    return base.ProcessSubmittedValue(field, postedValues, context);
-        //}
     }
 }
