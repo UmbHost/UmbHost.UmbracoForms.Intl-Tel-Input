@@ -1,8 +1,0 @@
-{
-  "version": "1.0.0",
-  "name": "activeis.umbracoforms.intel-tel-input",
-  "private": true,
-  "devDependencies": {
-    "intl-tel-input": "17.0.3"
-  }
-}
