@@ -1,5 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using Our.Umbraco.Forms.Intl_Tel_Input.Configuration;
+using Our.Umbraco.Forums.Intl_Tel_Input;
 using Umbraco.Forms.Core;
 using Umbraco.Forms.Core.Attributes;
 using Umbraco.Forms.Core.Enums;
@@ -10,8 +16,10 @@ namespace Our.Umbraco.Forms.Intl_Tel_Input.Fields
 {
     public class IntlTelInput : FieldType
     {
-        public IntlTelInput()
+        private readonly IntlTelInputSettings _config;
+        public IntlTelInput(IOptionsMonitor<IntlTelInputSettings> config)
         {
+            _config = config.CurrentValue;
             Id = new Guid("a7dc31b0-651f-4f29-ada3-0244bde2a7bd");
             Name = "Intl-Tel-Input";
             Description = "Entering and validating international telephone numbers";
@@ -46,7 +54,7 @@ namespace Our.Umbraco.Forms.Intl_Tel_Input.Fields
 
         public override string GetDesignView()
         {
-            return $"{Consts.PluginViewRoot}/FieldTypes/intltelinput.html";
+            return $"{IntlTelInputConsts.PluginViewRoot}/FieldTypes/intltelinput.html";
         }
 
         public override string RequiredJavascriptInitialization(Field field)
@@ -65,7 +73,7 @@ namespace Our.Umbraco.Forms.Intl_Tel_Input.Fields
                 {
                     initialCountry = "auto";
                 }
-                ipInfoKey = AppSettingsManager.GetIPinfoKey();
+                ipInfoKey = _config.IPinfoKey;
             }
 
             var autoPlaceholder = false;
@@ -107,7 +115,7 @@ namespace Our.Umbraco.Forms.Intl_Tel_Input.Fields
                     }
                 }
             }
-            return $"activeisUmbracoFormsIntlTelInput('{field.Id}'," +
+            return $"ourUmbracoFormsIntlTelInput('{field.Id}'," +
                    $"{ipBasedCountry.ToString().ToLower()}," +
                    $"'{initialCountry}'," +
                    $"{autoPlaceholder.ToString().ToLower()}," +
@@ -122,8 +130,8 @@ namespace Our.Umbraco.Forms.Intl_Tel_Input.Fields
         {
             var cssFiles = base.RequiredCssFiles(field).ToList();
 
-            cssFiles.Add($"{Consts.PluginCssRoot}/intlTelInput.min.css");
-            cssFiles.Add($"{Consts.PluginCssRoot}/activeis.umbracoforms.intl-tel-input.css");
+            cssFiles.Add($"{IntlTelInputConsts.PluginCssRoot}/intlTelInput.min.css");
+            cssFiles.Add($"{IntlTelInputConsts.PluginCssRoot}/our.umbraco.forms.intl-tel-input.css");
 
             return cssFiles;
         }
@@ -132,16 +140,16 @@ namespace Our.Umbraco.Forms.Intl_Tel_Input.Fields
         {
             var javascriptFiles = base.RequiredJavascriptFiles(field).ToList();
 
-            javascriptFiles.Add($"{Consts.PluginScriptRoot}/intlTelInput.min.js");
-            javascriptFiles.Add($"{Consts.PluginScriptRoot}/activeis.umbracoforms.intl-tel-input.js");
+            javascriptFiles.Add($"{IntlTelInputConsts.PluginScriptRoot}/intlTelInput.min.js");
+            javascriptFiles.Add($"{IntlTelInputConsts.PluginScriptRoot}/our.umbraco.forms.intl-tel-input.js");
 
             if (field.Settings.ContainsKey("IPBasedCountry") && field.Settings["IPBasedCountry"] == "True"
                 || field.Settings.ContainsKey("AutoPlaceholder") && field.Settings["AutoPlaceholder"] == "True")
             {
-                javascriptFiles.Add($"{Consts.PluginScriptRoot}/utils.js");
+                javascriptFiles.Add($"{IntlTelInputConsts.PluginScriptRoot}/utils.js");
             }
 
-            javascriptFiles.Add($"{Consts.PluginScriptRoot}/validate.phonenumber.js");
+            javascriptFiles.Add($"{IntlTelInputConsts.PluginScriptRoot}/validate.phonenumber.js");
 
             return javascriptFiles;
         }

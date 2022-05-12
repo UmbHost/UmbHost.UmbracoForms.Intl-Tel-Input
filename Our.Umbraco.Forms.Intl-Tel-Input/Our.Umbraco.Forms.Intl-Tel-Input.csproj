@@ -3,12 +3,12 @@
         <TargetFramework>net6.0</TargetFramework>
         <ContentTargetFolders>.</ContentTargetFolders>
         <Product>Our.Umbraco.Forums.Intl_Tel_Input</Product>
-        <PackageId>Our.Umbraco.Forums.Intl_Tel_Input</PackageId>
+        <PackageId>Our.Umbraco.Forms.Intl_Tel_Input</PackageId>
         <Title>Our.Umbraco.Forums.Intl_Tel_Input</Title>
         <Description>...</Description>
         <Product>...</Product>
         <PackageTags>umbraco plugin package</PackageTags>
-        <RootNamespace>Our.Umbraco.Forums.Intl_Tel_Input</RootNamespace>
+        <RootNamespace>Our.Umbraco.Forms.Intl_Tel_Input</RootNamespace>
         <Nullable>disable</Nullable>
         <Authors>UmbHost Limited</Authors>
         <Copyright>(C) 2022 UmbHost Limited</Copyright>
@@ -21,8 +21,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Umbraco.Cms.Web.Website" Version="9.3.1" />
-        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.3.1" />
+        <PackageReference Include="libphonenumber-csharp" Version="8.12.46" />
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+        <PackageReference Include="Umbraco.Cms.Web.Website" Version="9.5.0" />
+        <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.5.0" />
+        <PackageReference Include="Umbraco.Forms.Core" Version="9.4.1" />
     </ItemGroup>
 
     <ItemGroup>

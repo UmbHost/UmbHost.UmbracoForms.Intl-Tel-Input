@@ -1,0 +1,33 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <OurUmbracoFormsIntlTelInputContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\Our.Umbraco.Forms.Intl_Tel_Input\**\*.*</OurUmbracoFormsIntlTelInputContentFilesPath>
+		<OurUmbracoFormsIntlTelInputRazorFilesPath>$(MSBuildThisFileDirectory)..\Views\Partials\Forms\Themes\default\Fieldtypes\**\*.*</OurUmbracoFormsIntlTelInputRazorFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyOurUmbracoFormsIntlTelInputAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <OurUmbracoFormsIntlTelInputContentFiles Include="$(OurUmbracoFormsIntlTelInputContentFilesPath)" />
+			<OurUmbracoFormsIntlTelInputRazorFiles Include="$(OurUmbracoFormsIntlTelInputRazorFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying Our.Umbraco.Forms.Intl_Tel_Input files: $(OurUmbracoFormsIntlTelInputContentFilesPath) - #@(OurUmbracoFormsIntlTelInputContentFiles->Count()) files"  Importance="high" />
+        <Copy
+            SourceFiles="@(OurUmbracoFormsIntlTelInputContentFiles)"
+            DestinationFiles="@(OurUmbracoFormsIntlTelInputContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.Forms.Intl_Tel_Input\%(RecursiveDir)%(Filename)%(Extension)')"
+            SkipUnchangedFiles="true" />
+        <Message Text="Our.Umbraco.Forms.Intl_Tel_Input Razor files: $(OurUmbracoFormsIntlTelInputRazorFilesPath) - #@(OurUmbracoFormsIntlTelInputRazorFiles->Count()) files"  Importance="high" />
+        <Copy
+	        SourceFiles="@(OurUmbracoFormsIntlTelInputRazorFiles)"
+	        DestinationFiles="@(OurUmbracoFormsIntlTelInputRazorFiles->'$(MSBuildProjectDirectory)\Views\Partials\Forms\Themes\default\Fieldtypes\%(RecursiveDir)%(Filename)%(Extension)')"
+	        SkipUnchangedFiles="true"	/>
+    </Target>
+
+    <Target Name="ClearOurUmbracoFormsIntlTelInputAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <OurUmbracoFormsIntlTelInputDir Include="$(MSBuildProjectDirectory)\App_Plugins\Our.Umbraco.Forms.Intl_Tel_Input\" />
+        </ItemGroup>
+        <Message Text="Clear old Our.Umbraco.Forms.Intl_Tel_Input data"  Importance="high" />
+        <RemoveDir Directories="@(OurUmbracoFormsIntlTelInputDir)"  />
+    </Target>
+
+</Project>
