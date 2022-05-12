@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Our.Umbraco.Forms.Intl_Tel_Input</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\css\intlTelInput.min.css" />
+    <None Remove="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\css\our.umbraco.forms.intl-tel-input.css" />
+    <None Remove="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\Images\flags.png" />
+    <None Remove="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\Images\flags@2x.png" />
+    <None Remove="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\Images\intl-tel-input.png" />
+    <None Remove="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\js\our.umbraco.forms.intl-tel-input.js" />
+    <None Remove="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\js\validate.phonenumber.js" />
+    <None Remove="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\Views\FieldTypes\intltelinput.html" />
+    <None Remove="UI\Views\Partials\Forms\Themes\default\Render.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\css\our.umbraco.forms.intl-tel-input.css" />
+    <Content Include="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\css\intlTelInput.min.css" />
+    <Content Include="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\Images\flags.png" />
+    <Content Include="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\Images\flags@2x.png" />
+    <Content Include="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\Images\intl-tel-input.png" />
+    <Content Include="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\js\our.umbraco.forms.intl-tel-input.js" />
+    <Content Include="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\js\validate.phonenumber.js" />
+    <Content Include="UI\App_Plugins\Our.Umbraco.Forms.Intl-Tel-Input\Views\FieldTypes\intltelinput.html" />
+    <Content Include="UI\Views\Partials\Forms\Themes\default\Render.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="libphonenumber-csharp" Version="8.12.46" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+    <PackageReference Include="Umbraco.Forms.Core" Version="9.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UI\Views\Partials\Forms\Themes\Fieldtypes\" />
+  </ItemGroup>
+
+</Project>
