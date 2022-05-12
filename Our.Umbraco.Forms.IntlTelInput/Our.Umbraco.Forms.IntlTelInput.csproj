@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+	    <TargetFrameworks>net5.0;net6.0</TargetFrameworks>
         <ContentTargetFolders>.</ContentTargetFolders>
         <Product>Our.Umbraco.Forums.Intl_Tel_Input</Product>
         <PackageId>Our.Umbraco.Forms.Intl_Tel_Input</PackageId>
@@ -18,7 +18,7 @@
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-        <Version>2.0.1-beta</Version>
+        <Version>2.0.4-beta</Version>
         <PlatformTarget>AnyCPU</PlatformTarget>
     </PropertyGroup>
 
@@ -28,10 +28,11 @@
         <PackageReference Include="Umbraco.Cms.Web.Website" Version="9.5.0" />
         <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="9.5.0" />
         <PackageReference Include="Umbraco.Forms.Core" Version="9.4.1" />
+        <PackageReference Include="Umbraco.Forms.Web" Version="9.4.1" />
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="App_Plugins\Our.Umbraco.Forums.Intl_Tel_Input\**\*.*">
+        <Content Include="App_Plugins\Our.Umbraco.Forms.IntlTelInput\**\*.*">
             <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
             <CopyToPublishDirectory>Always</CopyToPublishDirectory>
         </Content>
