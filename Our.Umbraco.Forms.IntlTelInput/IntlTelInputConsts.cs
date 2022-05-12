@@ -2,7 +2,7 @@
 {
     internal static class IntlTelInputConsts
     {
-        private static string PluginRoot => "~/App_Plugins/Our.Umbraco.Forms.Intl-Tel-Input";
+        private static string PluginRoot => "~/App_Plugins/Our.Umbraco.Forms.IntlTelInput";
         internal static string PluginCssRoot => $"{PluginRoot}/css";
         internal static string PluginScriptRoot => $"{PluginRoot}/js";
         internal static string PluginImageRoot => $"{PluginRoot}/images";
