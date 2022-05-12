@@ -1,4 +1,4 @@
-﻿namespace Our.Umbraco.Forums.Intl_Tel_Input
+﻿namespace Our.Umbraco.Forms.IntlTelInput
 {
     internal static class IntlTelInputConsts
     {

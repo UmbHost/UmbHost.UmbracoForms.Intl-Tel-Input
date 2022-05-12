@@ -1,6 +1,6 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
         <ContentTargetFolders>.</ContentTargetFolders>
         <Product>Our.Umbraco.Forums.Intl_Tel_Input</Product>
         <PackageId>Our.Umbraco.Forms.Intl_Tel_Input</PackageId>
@@ -8,7 +8,7 @@
         <Description>...</Description>
         <Product>...</Product>
         <PackageTags>umbraco plugin package</PackageTags>
-        <RootNamespace>Our.Umbraco.Forms.Intl_Tel_Input</RootNamespace>
+        <RootNamespace>Our.Umbraco.Forms.IntlTelInput</RootNamespace>
         <Nullable>disable</Nullable>
         <Authors>UmbHost Limited</Authors>
         <Copyright>(C) 2022 UmbHost Limited</Copyright>
@@ -18,7 +18,8 @@
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-        <Version>2.0.0-beta</Version>
+        <Version>2.0.1-beta</Version>
+        <PlatformTarget>AnyCPU</PlatformTarget>
     </PropertyGroup>
 
     <ItemGroup>
