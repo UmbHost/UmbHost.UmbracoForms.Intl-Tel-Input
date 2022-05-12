@@ -8,7 +8,7 @@ This package is supported on Umbraco 9.5.0+ and Umbraco Forms 9.4.1+.
 
 ### Installation
 
-Our.Umbraco.Forms.Intl-Tel-Input is available from [NuGet](https://www.nuget.org/packages/Our.Umbraco.Forms.Intl-Tel-Input) or as a manual download directly from GitHub.
+Our.Umbraco.Forms.Intl-Tel-Input is available from [NuGet](https://www.nuget.org/packages/Our.Umbraco.Forms.Intl_Tel_Input) or as a manual download directly from GitHub.
 
     dotnet add package Our.Umbraco.Forms.Intl-Tel-Input
 
