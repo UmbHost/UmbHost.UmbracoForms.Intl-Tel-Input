@@ -22,6 +22,22 @@ You will need to add the following setting to your `appsettings.json`
         "IPinfoKey": "YOUR API KEY"
       }
 
+You must add the following if statement to your Umbraco Forms theme `Render.cshtml` file:
+
+```
+    @if (Model.CurrentPage.JavascriptCommands.Any())
+    {
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                @foreach (var javascriptCommand in Model.CurrentPage.JavascriptCommands)
+                {
+                    @Html.Raw(javascriptCommand)
+                }
+            });
+        </script>
+    }
+```
+
 The following settings are available on the field type, and are set on each form within the Umbraco Forms Backoffice.
 
 * Validation message
