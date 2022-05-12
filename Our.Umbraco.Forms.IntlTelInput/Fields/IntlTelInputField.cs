@@ -114,9 +114,9 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
                     }
                 }
             }
-            return $"ourUmbracoFormsIntlTelInput('{field.Id}'," +
+            return $"ourUmbracoFormsIntlTelInput('t{field.Id}'," +
                    $"{ipBasedCountry.ToString().ToLower()}," +
-                   $"'{initialCountry}'," +
+                   $"'{initialCountry.ToUpper()}'," +
                    $"{autoPlaceholder.ToString().ToLower()}," +
                    $"'{ipInfoKey}'," +
                    $"'{placeholderType}'," +
@@ -158,16 +158,24 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
         {
             var invalidFields = new List<string>();
             var formFields = context.Request.Form;
-            if (formFields.ContainsKey("phone_intl_" + field.Id))
+            if (formFields.ContainsKey("phone_intl_t" + field.Id))
             {
                 try
                 {
-                    var submittedNumber = formFields["phone_intl_" + field.Id];
-                    var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
-                    var phoneNumber = phoneNumberUtil.Parse(submittedNumber, null);
-                    var isValid = phoneNumberUtil.IsValidNumber(phoneNumber);
+                    var containsNumber = formFields.TryGetValue("phone_intl_t" + field.Id, out var submittedNumber);
+                    if (containsNumber)
+                    {
+                        var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
+                        var phoneNumber = phoneNumberUtil.Parse(submittedNumber, null);
+                        var isValid = phoneNumberUtil.IsValidNumber(phoneNumber);
 
-                    if (!isValid)
+                        if (!isValid)
+                        {
+                            invalidFields.Add("The number entered is not valid");
+                            return invalidFields;
+                        }
+                    }
+                    else
                     {
                         invalidFields.Add("The number entered is not valid");
                         return invalidFields;
@@ -183,20 +191,20 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
             return base.ValidateField(form, field, postedValues, context, placeholderParsingService, errors);
         }
 
-        public override IEnumerable<object> ProcessSubmittedValue(Field field, IEnumerable<object> postedValues, HttpContext context)
-        {
-            var formFields = context.Request.Form;
-            var submittedNumber = formFields["phone_intl_" + field.Id];
-            if (!string.IsNullOrEmpty(submittedNumber) && !string.IsNullOrWhiteSpace(submittedNumber))
-            {
-                var pv = postedValues.ToList();
-                pv.Clear();
-                pv.Add(submittedNumber);
+        //public override IEnumerable<object> ProcessSubmittedValue(Field field, IEnumerable<object> postedValues, HttpContext context)
+        //{
+        //    var formFields = context.Request.Form;
+        //    var submittedNumber = formFields["phone_intl_t" + field.Id];
+        //    if (!string.IsNullOrEmpty(submittedNumber) && !string.IsNullOrWhiteSpace(submittedNumber))
+        //    {
+        //        var pv = postedValues.ToList();
+        //        pv.Clear();
+        //        pv.Add(submittedNumber);
 
-                return base.ProcessSubmittedValue(field, pv, context);
-            }
+        //        return base.ProcessSubmittedValue(field, pv, context);
+        //    }
 
-            return base.ProcessSubmittedValue(field, postedValues, context);
-        }
+        //    return base.ProcessSubmittedValue(field, postedValues, context);
+        //}
     }
 }
