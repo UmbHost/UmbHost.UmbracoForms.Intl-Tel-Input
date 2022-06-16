@@ -4,7 +4,7 @@ Add the [Intl-Tel-Input](https://intl-tel-input.com/) text field to your Umbraco
 
 ## Getting started
 
-This package is supported on Umbraco 9.5.0+ and Umbraco Forms 9.4.1+.
+This package is supported on Umbraco 10+ and Umbraco Forms 10+.
 
 ### Installation
 
