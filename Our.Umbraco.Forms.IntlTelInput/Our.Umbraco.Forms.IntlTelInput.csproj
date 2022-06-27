@@ -43,6 +43,14 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Intl-Tel-Input.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Views\Partials\Forms\Themes\default\Fieldtypes\FieldType.Intl-Tel-Input.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
       <None Include="..\Builds\logo.png">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
@@ -114,7 +114,7 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
                     }
                 }
             }
-            return $"ourUmbracoFormsIntlTelInput('t{field.Id}'," +
+            return $"ourUmbracoFormsIntlTelInput('t{field.Id.ToString("N")}'," +
                    $"{ipBasedCountry.ToString().ToLower()}," +
                    $"'{initialCountry.ToUpper()}'," +
                    $"{autoPlaceholder.ToString().ToLower()}," +
