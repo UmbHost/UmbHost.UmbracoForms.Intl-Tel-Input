@@ -114,7 +114,7 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
                     }
                 }
             }
-            return $"ourUmbracoFormsIntlTelInput('t{field.Id}'," +
+            return $"ourUmbracoFormsIntlTelInput('t{field.Id.ToString("N")}'," +
                    $"{ipBasedCountry.ToString().ToLower()}," +
                    $"'{initialCountry.ToUpper()}'," +
                    $"{autoPlaceholder.ToString().ToLower()}," +
@@ -163,7 +163,7 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
                 {
                     var submittedNumber = postedValues.First().ToString();
                     var phoneNumberUtil = PhoneNumbers.PhoneNumberUtil.GetInstance();
-                    var phoneNumber = phoneNumberUtil.Parse(submittedNumber, null);
+                    var phoneNumber = phoneNumberUtil.Parse(submittedNumber, field.Settings["InitialCountry"]);
                     var isValid = phoneNumberUtil.IsValidNumber(phoneNumber);
 
                     if (!isValid)
