@@ -5,9 +5,9 @@
         <Product>Our.Umbraco.Forums.Intl_Tel_Input</Product>
         <PackageId>Our.Umbraco.Forms.Intl_Tel_Input</PackageId>
         <Title>Our.Umbraco.Forums.Intl_Tel_Input</Title>
-        <Description>...</Description>
+        <Description>Add the Intl-Tel-Input text field to your Umbraco Forms</Description>
         <Product>...</Product>
-        <PackageTags>umbraco plugin package</PackageTags>
+        <PackageTags>umbraco plugin package umbraco-marketplace</PackageTags>
         <RootNamespace>Our.Umbraco.Forms.IntlTelInput</RootNamespace>
         <Nullable>disable</Nullable>
         <Authors>UmbHost Limited</Authors>
@@ -18,8 +18,10 @@
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-        <Version>3.0.1</Version>
+        <Version>3.0.2</Version>
         <PlatformTarget>AnyCPU</PlatformTarget>
+        <PackageReleaseNotes>Added umbraco-marketplace tag </PackageReleaseNotes>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -52,6 +54,10 @@
 
     <ItemGroup>
       <None Include="..\Builds\logo.png">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+      <None Include="..\README.md">
         <Pack>True</Pack>
         <PackagePath>\</PackagePath>
       </None>
