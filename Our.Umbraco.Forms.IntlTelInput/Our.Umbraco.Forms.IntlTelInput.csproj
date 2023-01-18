@@ -11,21 +11,21 @@
         <RootNamespace>Our.Umbraco.Forms.IntlTelInput</RootNamespace>
         <Nullable>disable</Nullable>
         <Authors>UmbHost Limited</Authors>
-        <Copyright>(C) 2022 UmbHost Limited</Copyright>
+        <Copyright>(C) 2023 UmbHost Limited</Copyright>
         <PackageProjectUrl>https://github.com/UmbHost/UmbHost.UmbracoForms.Intl-Tel-Input</PackageProjectUrl>
         <PackageIcon>logo.png</PackageIcon>
         <RepositoryUrl>https://github.com/UmbHost/UmbHost.UmbracoForms.Intl-Tel-Input</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-        <Version>3.0.2</Version>
+        <Version>3.0.3</Version>
         <PlatformTarget>AnyCPU</PlatformTarget>
-        <PackageReleaseNotes>Added umbraco-marketplace tag </PackageReleaseNotes>
+        <PackageReleaseNotes>Included utils.js package, updated Intl-tel-input to 17.0.19</PackageReleaseNotes>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="libphonenumber-csharp" Version="8.12.50" />
+        <PackageReference Include="libphonenumber-csharp" Version="8.13.4" />
         <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
         <PackageReference Include="Umbraco.Cms.Web.Website" Version="10.0.0" />
         <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="10.0.0" />
