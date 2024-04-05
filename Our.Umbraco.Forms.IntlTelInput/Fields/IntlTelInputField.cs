@@ -154,7 +154,7 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
         }
 
         public override IEnumerable<string> ValidateField(Form form, Field field, IEnumerable<object> postedValues, HttpContext context,
-            IPlaceholderParsingService placeholderParsingService, List<string> errors)
+            IPlaceholderParsingService placeholderParsingService, IFieldTypeStorage fieldTypeStorage, List<string> errors)
         {
             var invalidFields = new List<string>();
             if (postedValues.Any())
@@ -179,7 +179,7 @@ namespace Our.Umbraco.Forms.IntlTelInput.Fields
                 }
             }
 
-            return base.ValidateField(form, field, postedValues, context, placeholderParsingService, errors);
+            return base.ValidateField(form, field, postedValues, context, placeholderParsingService, fieldTypeStorage, errors);
         }
     }
 }
